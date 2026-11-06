@@ -13,7 +13,7 @@ public class Trainer : MonoBehaviour
         int lastLayerIndex = network.layers.Length - 1;
         Layer lastLayer = network.layers[lastLayerIndex];
 
-        for (int i = 0; i < lastLayer.activations.Length; i++)
+        for (int i = 0; i < lastLayer.sizeOfNextLayer; i++)
         {
             loss += lossFunction.GetLoss(lastLayer.activations[i], targets[i]);
 
@@ -36,12 +36,19 @@ public class Trainer : MonoBehaviour
 
         for (int i = 0; i < layer.size; i++)
         {
-            for (int w = 0; w < layer.weights.GetLength(1); w++)
+            for (int w = 0; w < layer.sizeOfNextLayer; w++)
             {
+                layer.weightGradients[i, w] += lastErrorDelta[w] * layer.input[i];
+
                 errorDelta[i] += layer.weights[i, w] * lastErrorDelta[w];
             }
 
             if (layerIndex > 0) errorDelta[i] *= network.activationFunction.GetGradient(network.layers[layerIndex - 1].results[i]);
+        }
+
+        for (int b = 0; b < layer.sizeOfNextLayer; b++)
+        {
+            layer.biasGradients[b] += lastErrorDelta[b];
         }
 
 

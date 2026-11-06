@@ -5,12 +5,15 @@ using UnityEngine;
 public class Layer
 {
     public int size;
-    private int sizeOfNextLayer;
+    public int sizeOfNextLayer;
 
     public double[] input;
 
     public double[] biases;
     public double[,] weights;
+
+    public double[,] weightGradients;
+    public double[] biasGradients;
 
     public double[] results;
     public double[] activations; //This holds the same values as the input for the next layer
@@ -20,10 +23,12 @@ public class Layer
         sizeOfNextLayer = _sizeOfNextLayer;
 
         biases = new double[sizeOfNextLayer];
+        biasGradients = new double[sizeOfNextLayer];
 
         //Each neuron in this layer, has as many outgoing
         //connections as there are neurons in the next layer
         weights = new double[size, sizeOfNextLayer];
+        weightGradients = new double[size, sizeOfNextLayer];
 
         results = new double[sizeOfNextLayer];
         activations = new double[sizeOfNextLayer];
