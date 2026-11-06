@@ -36,6 +36,7 @@ public class Trainer : MonoBehaviour
     {
         double loss = 0d;
         Span<double> errorDelta = stackalloc double[targets.Length]; //TODO: Don't allocate at all, just store errorDeltas in layer
+        errorDelta.Clear();
 
         int lastLayerIndex = network.layers.Length - 1;
         Layer lastLayer = network.layers[lastLayerIndex];
@@ -60,6 +61,7 @@ public class Trainer : MonoBehaviour
         Layer layer = network.layers[layerIndex];
 
         Span<double> errorDelta = stackalloc double[layer.size]; //TODO: Don't allocate at all, just store errorDeltas in layer
+        errorDelta.Clear();
 
         for (int i = 0; i < layer.size; i++)
         {
