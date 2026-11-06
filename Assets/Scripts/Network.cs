@@ -38,13 +38,17 @@ public class Network : MonoBehaviour //TODO: Give each layer their own activatio
         }
     }
 
-    public ReadOnlySpan<double> Evaluate(ReadOnlySpan<double> input)
+    public ReadOnlySpan<double> Evaluate(double[] input)
     {
-        for (int i = 0; i < layers.Length; i++)
+        layers[0].input = input;
+        layers[0].Propogate(activationFunction);
+
+        for (int i = 1; i < layers.Length; i++)
         {
-            input = layers[i].Propogate(input, activationFunction);
+            layers[i].input = layers[i - 1].activations; //TODO: Make this much faster through spans - or layers could reference each other sequentally
+            layers[i].Propogate(activationFunction);
         }
 
-        return input;
+        return layers[layers.Length - 1].activations;
     }
 }

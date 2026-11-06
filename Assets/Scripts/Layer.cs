@@ -7,11 +7,13 @@ public class Layer
     public int size;
     private int sizeOfNextLayer;
 
+    public double[] input;
+
     public double[] biases;
     public double[,] weights;
 
     public double[] results;
-    public double[] activations;
+    public double[] activations; //This holds the same values as the input for the next layer
 
     public void Initialize(int _sizeOfNextLayer)
     {
@@ -44,7 +46,7 @@ public class Layer
     }
 
     //Input is of length == size
-    public ReadOnlySpan<double> Propogate(ReadOnlySpan<double> input, ActivationFunction activation)
+    public ReadOnlySpan<double> Propogate(ActivationFunction activation)
     {
         //Clear results array
         for (int i = 0; i < sizeOfNextLayer; i++) results[i] = 0;
