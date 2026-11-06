@@ -72,6 +72,6 @@ public class Layer
             activations[i] = activation.GetActivation(results[i]);
         }
 
-        return results;
+        return activations;
     }
 }

@@ -850,48 +850,6 @@ MonoBehaviour:
     biasGradients: []
     results: []
     activations: []
-  - size: 8
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
-  - size: 8
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
-  - size: 8
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
-  - size: 8
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
-  - size: 8
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
-  - size: 8
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
   sizeOfOutputLayer: 1
   activationFunction: {fileID: 1995066262}
   testInput:
@@ -927,10 +885,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   network: {fileID: 1509125869}
-  learningRate: 0.1
+  learningRate: 0.01
   lossFunction: {fileID: 1669323952}
   resolution: 200
-  dataPointCount: 1341
+  dataPointCount: 89
   width: 20
   graphRenderer: {fileID: 918200926}
   networkRenderer: {fileID: 413170016}
