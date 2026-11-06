@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Trainer : MonoBehaviour
 {
-    [SerializeField] private Network network;
+    [SerializeField] protected Network network;
     [SerializeField] private double learningRate;
     [SerializeField] private LossFunction lossFunction;
 
@@ -78,6 +78,8 @@ public class Trainer : MonoBehaviour
             layer.biasGradients[b] += lastErrorDelta[b];
         }
 
+
+        if (layerIndex == 0) return;
 
         PropogateError(errorDelta, layerIndex - 1);
     }
