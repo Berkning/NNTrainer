@@ -11,7 +11,7 @@ public class Network : MonoBehaviour
     [SerializeField] private double[] testInput;
     [SerializeField] private bool evaluate;
 
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < layers.Length - 1; i++)
         {
