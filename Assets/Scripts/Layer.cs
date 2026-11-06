@@ -51,7 +51,7 @@ public class Layer
     }
 
     //Input is of length == size
-    public ReadOnlySpan<double> Propogate(ActivationFunction activation)
+    public void Propogate(ActivationFunction activation)
     {
         //Clear results array
         for (int i = 0; i < sizeOfNextLayer; i++) results[i] = 0;
@@ -71,7 +71,5 @@ public class Layer
 
             activations[i] = activation.GetActivation(results[i]);
         }
-
-        return activations;
     }
 }

@@ -888,8 +888,8 @@ MonoBehaviour:
   learningRate: 0.01
   lossFunction: {fileID: 1669323952}
   resolution: 200
-  dataPointCount: 89
-  width: 20
+  dataPointCount: 100
+  width: 10
   graphRenderer: {fileID: 918200926}
   networkRenderer: {fileID: 413170016}
   train: 0
