@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public interface ActivationFunction
+[System.Serializable]
+public abstract class ActivationFunction : MonoBehaviour
 {
-    public double GetActivation(double x);
-    public double GetGradient(double x);
+    public abstract double GetActivation(double x);
+    public abstract double GetGradient(double x);
 }

@@ -1,7 +1,47 @@
+using System;
 using UnityEngine;
 
 [System.Serializable]
 public class Layer
 {
     public int size;
+    private int sizeOfNextLayer;
+
+    private double[] biases;
+    private double[,] weights;
+
+    private double[] results;
+
+    public void Initialize(int _sizeOfNextLayer)
+    {
+        sizeOfNextLayer = _sizeOfNextLayer;
+
+        biases = new double[sizeOfNextLayer];
+
+        //Each neuron in this layer, has as many outgoing
+        //connections as there are neurons in the next layer
+        weights = new double[size, sizeOfNextLayer];
+
+        results = new double[sizeOfNextLayer];
+    }
+
+    //Input is of length == size
+    public ReadOnlySpan<double> Propogate(ReadOnlySpan<double> input, ActivationFunction activation)
+    {
+        //Clear results array
+        for (int i = 0; i < sizeOfNextLayer; i++) results[i] = 0;
+
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int w = 0; w < sizeOfNextLayer; w++)
+            {
+                double output = input[i] * weights[i, w] + biases[w];
+
+                results[w] += activation.GetActivation(output);
+            }
+        }
+
+        return results;
+    }
 }
