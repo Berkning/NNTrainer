@@ -3,9 +3,36 @@ using UnityEngine;
 
 public class Trainer : MonoBehaviour
 {
+    [SerializeField] private Network network;
+    [SerializeField] private double learningRate;
     [SerializeField] private LossFunction lossFunction;
 
-    public void CalculateGradients(Network network, double[] targets)
+    public void ApplyGradients()
+    {
+        for (int l = 0; l < network.layers.Length; l++)
+        {
+            Layer layer = network.layers[l];
+
+            for (int b = 0; b < layer.biases.Length; b++)
+            {
+                layer.biases[b] = layer.biases[b] - learningRate * layer.biasGradients[b];
+
+                layer.biasGradients[b] = 0d;
+            }
+
+            for (int i = 0; i < layer.size; i++)
+            {
+                for (int w = 0; w < layer.sizeOfNextLayer; w++)
+                {
+                    layer.weights[i, w] = layer.weightGradients[i, w] - learningRate * layer.weightGradients[i, w];
+
+                    layer.weightGradients[i, w] = 0d;
+                }
+            }
+        }
+    }
+
+    public void CalculateGradients(double[] targets)
     {
         double loss = 0d;
         Span<double> errorDelta = stackalloc double[targets.Length]; //TODO: Don't allocate at all, just store errorDeltas in layer
@@ -24,11 +51,11 @@ public class Trainer : MonoBehaviour
         //TODO: Display loss
         Console.WriteLine(loss);
 
-        PropogateError(network, errorDelta, lastLayerIndex);
+        PropogateError(errorDelta, lastLayerIndex);
     }
 
     //The layer at layerIndex-1 holds the activations for this layer, but the layer at layerIndex hold the weights and biases connecting this layer to the next (The output at first call)
-    private void PropogateError(Network network, Span<double> lastErrorDelta, int layerIndex)
+    private void PropogateError(Span<double> lastErrorDelta, int layerIndex)
     {
         Layer layer = network.layers[layerIndex];
 
@@ -52,6 +79,6 @@ public class Trainer : MonoBehaviour
         }
 
 
-        PropogateError(network, errorDelta, layerIndex - 1);
+        PropogateError(errorDelta, layerIndex - 1);
     }
 }
