@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Network : MonoBehaviour
+public class Network : MonoBehaviour //TODO: Give each layer their own activation function
 {
     public Layer[] layers;
     public int sizeOfOutputLayer;

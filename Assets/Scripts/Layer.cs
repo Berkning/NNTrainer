@@ -7,10 +7,11 @@ public class Layer
     public int size;
     private int sizeOfNextLayer;
 
-    private double[] biases;
-    private double[,] weights;
+    public double[] biases;
+    public double[,] weights;
 
-    private double[] results;
+    public double[] results;
+    public double[] activations;
 
     public void Initialize(int _sizeOfNextLayer)
     {
@@ -23,6 +24,7 @@ public class Layer
         weights = new double[size, sizeOfNextLayer];
 
         results = new double[sizeOfNextLayer];
+        activations = new double[sizeOfNextLayer];
     }
 
     public void Randomize(double weightRange, double biasRange)
@@ -52,10 +54,15 @@ public class Layer
         {
             for (int w = 0; w < sizeOfNextLayer; w++)
             {
-                double output = input[i] * weights[i, w] + biases[w];
-
-                results[w] += activation.GetActivation(output);
+                results[w] += input[i] * weights[i, w];
             }
+        }
+
+        for (int i = 0; i < sizeOfNextLayer; i++)
+        {
+            results[i] += biases[i];
+
+            activations[i] = activation.GetActivation(results[i]);
         }
 
         return results;

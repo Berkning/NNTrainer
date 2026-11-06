@@ -810,8 +810,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Network
   layers:
   - size: 1
+    biases: []
+    results: []
+    activations: []
   - size: 2
+    biases: []
+    results: []
+    activations: []
   - size: 2
+    biases: []
+    results: []
+    activations: []
   sizeOfOutputLayer: 1
   activationFunction: {fileID: 781237234}
   testInput:
