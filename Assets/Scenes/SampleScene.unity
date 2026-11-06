@@ -767,8 +767,10 @@ MonoBehaviour:
   - size: 1
   - size: 2
   - size: 2
+  - size: 8
+  - size: 8
   sizeOfOutputLayer: 1
-  activationFunction: {fileID: 1856447934}
+  activationFunction: {fileID: 79272931}
   testInput:
   - 5.42
   evaluate: 0

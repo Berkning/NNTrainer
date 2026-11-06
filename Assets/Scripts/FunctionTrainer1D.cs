@@ -12,6 +12,7 @@ public class FunctionTrainer1D : MonoBehaviour
 
     void Start()
     {
+        network.Randomize(2d, 1d);
         DrawGraph();
         DrawNetwork();
     }

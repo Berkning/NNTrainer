@@ -30,6 +30,14 @@ public class Network : MonoBehaviour
         }
     }
 
+    public void Randomize(double weightRange, double biasRange)
+    {
+        for (int i = 0; i < layers.Length; i++)
+        {
+            layers[i].Randomize(weightRange, biasRange);
+        }
+    }
+
     public ReadOnlySpan<double> Evaluate(ReadOnlySpan<double> input)
     {
         for (int i = 0; i < layers.Length; i++)

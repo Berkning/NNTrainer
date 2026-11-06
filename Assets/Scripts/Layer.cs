@@ -25,6 +25,22 @@ public class Layer
         results = new double[sizeOfNextLayer];
     }
 
+    public void Randomize(double weightRange, double biasRange)
+    {
+        for (int i = 0; i < sizeOfNextLayer; i++)
+        {
+            biases[i] = UnityEngine.Random.Range((float)-biasRange / 2f, (float)biasRange / 2f);
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < sizeOfNextLayer; j++)
+            {
+                weights[i, j] = UnityEngine.Random.Range((float)-weightRange / 2f, (float)weightRange / 2f);
+            }
+        }
+    }
+
     //Input is of length == size
     public ReadOnlySpan<double> Propogate(ReadOnlySpan<double> input, ActivationFunction activation)
     {
