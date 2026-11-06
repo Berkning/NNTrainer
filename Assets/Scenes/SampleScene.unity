@@ -925,10 +925,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   network: {fileID: 1509125869}
-  learningRate: 0.001
+  learningRate: 0.1
   lossFunction: {fileID: 1669323952}
   resolution: 200
-  dataPointCount: 268
+  dataPointCount: 1341
   width: 20
   graphRenderer: {fileID: 918200926}
   networkRenderer: {fileID: 413170016}

@@ -16,7 +16,7 @@ public class FunctionTrainer1D : Trainer
 
     void Start()
     {
-        network.Randomize(1d, 2d);
+        network.Randomize(0.5d, 0.5d);
         DrawGraph();
         DrawNetwork();
         GetData();
@@ -31,8 +31,9 @@ public class FunctionTrainer1D : Trainer
             {
                 network.Evaluate(new double[] { dataPoints[i].x });
                 CalculateGradients(new double[] { dataPoints[i].y });
-                ApplyGradients();
             }
+
+            ApplyGradients(dataPointCount);
 
             DrawNetwork();
         }
@@ -81,7 +82,8 @@ public class FunctionTrainer1D : Trainer
 
     private double SampleFunction(double x)
     {
-        return Math.Sin(x);
+        return x;
+        //return Math.Sin(x);
     }
 
     private double SampleNetwork(double x)
