@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6dfa8f0744c1f2ba053db7471f1e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  learningRate: 0.003
+  learningRate: 0.001
   firstMomentCoefficient: 0.9
   secondMomentCoefficient: 0.999
   epsilon: 0.00000001
@@ -1201,7 +1201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1225235700
 Transform:
   m_ObjectHideFlags: 0
@@ -1230,12 +1230,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a06f0752e2f68e00ab4f05bea79fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FunctionTrainer2D
-  network: {fileID: 1509125869}
+  network: {fileID: 1503272708}
   lossFunction: {fileID: 575673356}
   optimizer: {fileID: 936422754}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
-  resolution: 32
+  useSGD: 1
+  resolution: 128
   dataPointCount: 3709
   train: 0
   trainingIterations: 1000
@@ -1307,6 +1308,132 @@ Transform:
   - {fileID: 575673355}
   m_Father: {fileID: 2063380269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1503272707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503272709}
+  - component: {fileID: 1503272708}
+  m_Layer: 0
+  m_Name: 2DNetwork
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1503272708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503272707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662d0bc0839d976db97028337da325d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Network
+  layers:
+  - size: 2
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 8
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 8
+    activationFunction: {fileID: 781237234}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  sizeOfOutputLayer: 1
+  testInput:
+  - 5.42
+  evaluate: 0
+--- !u!4 &1503272709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503272707}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1509125867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1445,7 @@ GameObject:
   - component: {fileID: 1509125868}
   - component: {fileID: 1509125869}
   m_Layer: 0
-  m_Name: Network
+  m_Name: 1DNetwork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1359,64 +1486,71 @@ MonoBehaviour:
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
-    activationFunction: {fileID: 781237234}
+  - size: 8
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 2
+    activationFunction: {fileID: 1995066262}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1442,7 +1576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1621053658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1460,6 +1594,7 @@ MonoBehaviour:
   optimizer: {fileID: 936422754}
   resolution: 2000
   dataPointCount: 2313
+  useSGD: 1
   width: 20
   graphRenderer: {fileID: 918200926}
   networkRenderer: {fileID: 413170016}
@@ -1952,6 +2087,7 @@ SceneRoots:
   - {fileID: 2044962585}
   - {fileID: 1509125868}
   - {fileID: 1621053659}
+  - {fileID: 1503272709}
   - {fileID: 1225235700}
   - {fileID: 253522355}
   - {fileID: 2063380269}

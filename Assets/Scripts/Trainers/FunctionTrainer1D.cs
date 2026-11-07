@@ -7,6 +7,7 @@ public class FunctionTrainer1D : Trainer
 {
     [Space(10), SerializeField] private int resolution;
     [SerializeField] private int dataPointCount;
+    [SerializeField] private bool useSGD;
     [SerializeField] private double width = 10;
 
     [SerializeField] private LineRenderer graphRenderer;
@@ -78,12 +79,12 @@ public class FunctionTrainer1D : Trainer
             {
                 network.Evaluate(new double[] { dataPoints[i].x });
                 CalculateGradients(new double[] { dataPoints[i].y });
+                if (useSGD) ApplyGradients(1);
             }
 
-            ApplyGradients(dataPointCount);
+            if (!useSGD) ApplyGradients(dataPointCount);
 
             DrawNetwork();
-
             yield return null;
         }
     }
@@ -132,8 +133,9 @@ public class FunctionTrainer1D : Trainer
 
     private double SampleFunction(double x)
     {
-        //return Math.Sin(x);
+        return Math.Sin(x) * x * x / 20d;
         return 1d / (1d + Math.Pow(Math.E, -x)) * Math.Sin(x * 5d);
+        return Math.Sqrt(1d / (1d + Math.Pow(Math.E, -x)) * Math.Sin(x * 5d) + 1d) * Math.Sqrt(2d) - 1d;
     }
 
     private double SampleNetwork(double x)
