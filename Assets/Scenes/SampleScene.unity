@@ -1184,11 +1184,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FunctionTrainer2D
   network: {fileID: 1503272708}
-  lossFunction: {fileID: 575673356}
+  lossFunction: {fileID: 1669323952}
   optimizer: {fileID: 936422754}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
-  useSGD: 1
+  lossGraph: {fileID: 1574585524}
+  useSGD: 0
   resolution: 128
   dataPointCount: 3709
   train: 0

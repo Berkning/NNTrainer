@@ -6,6 +6,18 @@ public class Trainer : MonoBehaviour
     [SerializeField] protected Network network;
     [SerializeField] private LossFunction lossFunction;
     [SerializeField] private Optimizer optimizer;
+    private double accumulatedLoss = 0d;
+    private int lossAccumulationCount = 0;
+
+    public double GetAndResetLoss()
+    {
+        double loss = accumulatedLoss / lossAccumulationCount;
+
+        accumulatedLoss = 0d;
+        lossAccumulationCount = 0;
+
+        return loss;
+    }
 
     public void ApplyGradients(int batchSize)
     {
@@ -28,6 +40,9 @@ public class Trainer : MonoBehaviour
             //How much does the loss change with respect to the pre-activation values of each neuron in the layer
             errorDelta[i] = lossFunction.GetGradient(lastLayer.activations[i], targets[i]) * lastLayer.activationFunction.GetGradient(lastLayer.results[i]);
         }
+
+        accumulatedLoss += loss;
+        lossAccumulationCount++;
 
         //TODO: Display loss
         //Debug.Log(loss);

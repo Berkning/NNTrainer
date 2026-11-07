@@ -7,6 +7,7 @@ public class FunctionTrainer2D : Trainer
 {
     [Space(10), SerializeField] private RawImage image;
     [SerializeField] private RawImage netImage;
+    [SerializeField] private LossGraph lossGraph;
     [SerializeField] private bool useSGD;
     [SerializeField] private int resolution;
     [SerializeField] private int dataPointCount;
@@ -46,6 +47,8 @@ public class FunctionTrainer2D : Trainer
             }
 
             if (!useSGD) ApplyGradients(1);
+
+            lossGraph.AddPoint((float)GetAndResetLoss());
 
             DrawNetwork();
 
