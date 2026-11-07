@@ -16,7 +16,7 @@ public class FunctionTrainer2D : Trainer
 
     void Start()
     {
-        network.Randomize(0.5d, 0.5d);
+        network.Randomize(1d, 1d);
         DrawImage();
         DrawNetwork();
         GetData();
@@ -49,15 +49,14 @@ public class FunctionTrainer2D : Trainer
     {
         Texture2D texture = new Texture2D(resolution, resolution);
 
-        double halfRes = resolution / 2d;
-        double increment = halfRes / resolution;
+        double increment = 2d / resolution;
 
         for (int x = 0; x < resolution; x++)
         {
             for (int y = 0; y < resolution; y++)
             {
-                double xCoord = (x - halfRes + x * increment) / halfRes; //Between -1 -> 1
-                double yCoord = (y - halfRes + y * increment) / halfRes; //Between -1 -> 1
+                double xCoord = x * increment - 1d; //Between -1 -> 1
+                double yCoord = y * increment - 1d; //Between -1 -> 1
 
                 double z = SampleFunction(xCoord, yCoord); //Between -1 -> 1
                 double t = (z + 1d) / 2d; //Between 0 -> 1
@@ -77,15 +76,14 @@ public class FunctionTrainer2D : Trainer
     {
         Texture2D texture = new Texture2D(resolution, resolution);
 
-        double halfRes = resolution / 2d;
-        double increment = halfRes / resolution;
+        double increment = 2d / resolution;
 
         for (int x = 0; x < resolution; x++)
         {
             for (int y = 0; y < resolution; y++)
             {
-                double xCoord = (x - halfRes + x * increment) / halfRes; //Between -1 -> 1
-                double yCoord = (y - halfRes + y * increment) / halfRes; //Between -1 -> 1
+                double xCoord = x * increment - 1d; //Between -1 -> 1
+                double yCoord = y * increment - 1d; //Between -1 -> 1
 
                 double z = network.Evaluate(new double[] { xCoord, yCoord })[0]; //Between -1 -> 1
                 double t = (z + 1d) / 2d; //Between 0 -> 1

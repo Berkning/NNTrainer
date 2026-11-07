@@ -1261,7 +1261,7 @@ MonoBehaviour:
     results: []
     activations: []
   sizeOfOutputLayer: 1
-  activationFunction: {fileID: 1621876224}
+  activationFunction: {fileID: 781237234}
   testInput:
   - 5.42
   evaluate: 0
