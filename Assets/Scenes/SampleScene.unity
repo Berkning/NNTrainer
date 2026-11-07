@@ -702,6 +702,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &575673354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575673355}
+  - component: {fileID: 575673356}
+  m_Layer: 0
+  m_Name: CrossEntropy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &575673355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575673354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1254230366}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575673356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575673354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57aec779ac00b3062a1d07ef40311813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CrossEntropy
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,11 +1184,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FunctionTrainer2D
   network: {fileID: 1509125869}
   learningRate: 0.01
-  lossFunction: {fileID: 1669323952}
+  lossFunction: {fileID: 575673356}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
-  resolution: 128
-  dataPointCount: 1573
+  resolution: 64
+  dataPointCount: 3807
   train: 0
   trainingIterations: 1
   gizmoSpread: 3.5
@@ -1178,6 +1222,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1669323951}
+  - {fileID: 575673355}
   m_Father: {fileID: 2063380269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1509125867
@@ -1232,28 +1277,42 @@ MonoBehaviour:
     biasGradients: []
     results: []
     activations: []
-  - size: 128
+  - size: 16
     sizeOfNextLayer: 0
     input: []
     biases: []
     biasGradients: []
     results: []
     activations: []
-  - size: 128
+  - size: 16
     sizeOfNextLayer: 0
     input: []
     biases: []
     biasGradients: []
     results: []
     activations: []
-  - size: 128
+  - size: 16
     sizeOfNextLayer: 0
     input: []
     biases: []
     biasGradients: []
     results: []
     activations: []
-  - size: 128
+  - size: 16
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    biasGradients: []
+    results: []
+    activations: []
+  - size: 16
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    biasGradients: []
+    results: []
+    activations: []
+  - size: 16
     sizeOfNextLayer: 0
     input: []
     biases: []

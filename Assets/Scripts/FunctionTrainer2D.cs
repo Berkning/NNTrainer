@@ -16,7 +16,7 @@ public class FunctionTrainer2D : Trainer
 
     void Start()
     {
-        network.Randomize(1d, 1d);
+        network.Randomize(2d, 2d);
         DrawImage();
         DrawNetwork();
         GetData();
@@ -116,9 +116,14 @@ public class FunctionTrainer2D : Trainer
     //Returns a value between -1 and 1
     private double SampleFunction(double x, double y)
     {
+        if (x * x + y * y > 0.8d) return -1d;
+        return 1d;
+
+        return Math.Cos(Math.Sqrt(x * x + y * y) * 3d);
+        return Math.Cos(x * 20d);
+        return (Math.Sin(x * 10d) + Math.Cos(y * 10d)) / 2d;
         if (x > 0) return x;
         return -1d;
-        //return (Math.Sin(x * 10d) + Math.Cos(y * 10d)) / 2d;
     }
 
 
