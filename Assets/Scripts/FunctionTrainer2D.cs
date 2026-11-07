@@ -7,13 +7,43 @@ public class FunctionTrainer2D : Trainer
     [SerializeField] private RawImage image;
     [SerializeField] private RawImage netImage;
     [SerializeField] private int resolution;
+    [SerializeField] private int dataPointCount;
+    [SerializeField] private bool train;
+    [SerializeField] private int trainingIterations;
+    [Space(10), SerializeField] private float gizmoSpread;
+
+    private (double x, double y, double z)[] dataPoints;
 
     void Start()
     {
-        network.Randomize(1d, 1d);
+        network.Randomize(0.5d, 0.5d);
         DrawImage();
         DrawNetwork();
+        GetData();
     }
+
+    void Update()
+    {
+        if (train)
+        {
+            train = false;
+
+            for (int m = 0; m < trainingIterations; m++)
+            {
+                for (int i = 0; i < dataPointCount; i++)
+                {
+                    network.Evaluate(new double[] { dataPoints[i].x, dataPoints[i].y });
+                    CalculateGradients(new double[] { dataPoints[i].z });
+                }
+
+                ApplyGradients(dataPointCount);
+
+                DrawNetwork();
+            }
+        }
+    }
+
+
 
     private void DrawImage()
     {
@@ -71,11 +101,43 @@ public class FunctionTrainer2D : Trainer
         netImage.texture = texture;
     }
 
+    private void GetData()
+    {
+        dataPoints = new (double, double, double)[dataPointCount];
+
+        for (int i = 0; i < dataPointCount; i++)
+        {
+            double x = UnityEngine.Random.Range(-1f, 1f);
+            double y = UnityEngine.Random.Range(-1f, 1f);
+            dataPoints[i] = (x, y, SampleFunction(x, y));
+        }
+    }
+
 
 
     //Returns a value between -1 and 1
     private double SampleFunction(double x, double y)
     {
-        return (Math.Sin(x * 2d) + Math.Cos(y * 2d)) / 2d;
+        if (x > 0) return x;
+        return -1d;
+        //return (Math.Sin(x * 10d) + Math.Cos(y * 10d)) / 2d;
+    }
+
+
+    void OnDrawGizmos()
+    {
+        if (Application.isPlaying)
+        {
+            for (int i = 0; i < dataPointCount; i++)
+            {
+                double t = (dataPoints[i].z + 1d) / 2d; //Between 0 -> 1
+                Gizmos.color = Color.Lerp(Color.black, Color.white, (float)t);
+
+                Vector3 position = new Vector3((float)dataPoints[i].x, (float)dataPoints[i].y, 0f) * gizmoSpread;
+                position += image.transform.position;
+
+                Gizmos.DrawSphere(position, 0.025f);
+            }
+        }
     }
 }

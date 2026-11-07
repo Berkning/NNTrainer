@@ -1144,6 +1144,10 @@ MonoBehaviour:
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
   resolution: 128
+  dataPointCount: 1573
+  train: 0
+  trainingIterations: 1
+  gizmoSpread: 3.5
 --- !u!1 &1254230365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1261,7 @@ MonoBehaviour:
     results: []
     activations: []
   sizeOfOutputLayer: 1
-  activationFunction: {fileID: 781237234}
+  activationFunction: {fileID: 1621876224}
   testInput:
   - 5.42
   evaluate: 0
