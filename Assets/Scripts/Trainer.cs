@@ -50,7 +50,7 @@ public class Trainer : MonoBehaviour
         }
 
         //TODO: Display loss
-        Debug.Log(loss);
+        //Debug.Log(loss);
 
         PropogateError(errorDelta, lastLayerIndex);
     }

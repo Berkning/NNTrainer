@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using UnityEngine;
 
 public class FunctionTrainer1D : Trainer
@@ -13,10 +14,13 @@ public class FunctionTrainer1D : Trainer
     private (double x, double y)[] dataPoints;
 
     [SerializeField] private bool train;
+    [SerializeField] private int trainingIterations;
+    [SerializeField] private bool bench;
+    [SerializeField] private int benchIterations;
 
     void Start()
     {
-        network.Randomize(0.5d, 0.5d);
+        network.Randomize(1d, 1d);
         DrawGraph();
         DrawNetwork();
         GetData();
@@ -27,15 +31,52 @@ public class FunctionTrainer1D : Trainer
         if (train)
         {
             train = false;
-            for (int i = 0; i < dataPointCount; i++)
+
+            for (int m = 0; m < trainingIterations; m++)
             {
-                network.Evaluate(new double[] { dataPoints[i].x });
-                CalculateGradients(new double[] { dataPoints[i].y });
+                for (int i = 0; i < dataPointCount; i++)
+                {
+                    network.Evaluate(new double[] { dataPoints[i].x });
+                    CalculateGradients(new double[] { dataPoints[i].y });
+                }
+
+                ApplyGradients(dataPointCount);
+
+                DrawNetwork();
+            }
+        }
+
+        if (bench)
+        {
+            bench = false;
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            for (int m = 0; m < benchIterations; m++)
+            {
+                for (int i = 0; i < dataPointCount; i++)
+                {
+                    network.Evaluate(new double[] { dataPoints[i].x });
+                }
             }
 
-            ApplyGradients(dataPointCount);
+            stopwatch.Stop();
+            UnityEngine.Debug.Log("Inference took " + stopwatch.ElapsedMilliseconds + "ms");
 
-            DrawNetwork();
+
+            stopwatch.Restart();
+
+            for (int m = 0; m < benchIterations; m++)
+            {
+                for (int i = 0; i < dataPointCount; i++)
+                {
+                    CalculateGradients(new double[] { dataPoints[i].y });
+                }
+            }
+
+            stopwatch.Stop();
+            UnityEngine.Debug.Log("Gradients took " + stopwatch.ElapsedMilliseconds + "ms");
         }
     }
 
@@ -82,8 +123,8 @@ public class FunctionTrainer1D : Trainer
 
     private double SampleFunction(double x)
     {
-        return x;
         //return Math.Sin(x);
+        return 1d / (1d + Math.Pow(Math.E, -x)) * Math.Sin(x);
     }
 
     private double SampleNetwork(double x)
