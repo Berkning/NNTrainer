@@ -78,5 +78,6 @@ public class Layer
 public struct Gradient
 {
     public double gradient;
-    public double velocity;
+    public double velocity; //Stores first moment for Adam
+    public double secondMoment;
 }

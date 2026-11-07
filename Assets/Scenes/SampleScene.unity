@@ -1077,6 +1077,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6dfa8f0744c1f2ba053db7471f1e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  learningRate: 0.03
+  firstMomentCoefficient: 0.9
+  secondMomentCoefficient: 0.999
+  epsilon: 0.00000001
 --- !u!1 &1088833461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FunctionTrainer2D
   network: {fileID: 1509125869}
   lossFunction: {fileID: 575673356}
-  optimizer: {fileID: 1898477251}
+  optimizer: {fileID: 936422754}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
   resolution: 128
@@ -1349,6 +1353,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Network
   layers:
   - size: 2
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
@@ -1680,7 +1691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1937643b78e987a2abc3acbe68aeb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  learningRate: 0.03
+  learningRate: 0.01
   momentumCoefficient: 0.9
 --- !u!1 &1995066260
 GameObject:
