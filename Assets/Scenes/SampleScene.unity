@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104593108
@@ -510,7 +510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &448155717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,7 +562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -1187,8 +1187,8 @@ MonoBehaviour:
   lossFunction: {fileID: 575673356}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
-  resolution: 64
-  dataPointCount: 3807
+  resolution: 128
+  dataPointCount: 431
   train: 0
   trainingIterations: 1
   gizmoSpread: 3.5
@@ -1271,6 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Network
   layers:
   - size: 2
+    activationFunction: {fileID: 1856447934}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1278,6 +1279,7 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 16
+    activationFunction: {fileID: 1856447934}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1285,6 +1287,7 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 16
+    activationFunction: {fileID: 1856447934}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1292,6 +1295,7 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 16
+    activationFunction: {fileID: 1856447934}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1299,20 +1303,7 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 16
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
-  - size: 16
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    biasGradients: []
-    results: []
-    activations: []
-  - size: 16
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1320,7 +1311,6 @@ MonoBehaviour:
     results: []
     activations: []
   sizeOfOutputLayer: 1
-  activationFunction: {fileID: 781237234}
   testInput:
   - 5.42
   evaluate: 0

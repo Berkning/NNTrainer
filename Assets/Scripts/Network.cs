@@ -5,7 +5,6 @@ public class Network : MonoBehaviour //TODO: Give each layer their own activatio
 {
     public Layer[] layers;
     public int sizeOfOutputLayer;
-    public ActivationFunction activationFunction;
 
     [Header("Testing")]
     [SerializeField] private double[] testInput;
@@ -41,12 +40,12 @@ public class Network : MonoBehaviour //TODO: Give each layer their own activatio
     public ReadOnlySpan<double> Evaluate(double[] input)
     {
         layers[0].input = input;
-        layers[0].Propogate(activationFunction);
+        layers[0].Propogate();
 
         for (int i = 1; i < layers.Length; i++)
         {
             layers[i].input = layers[i - 1].activations; //TODO: Make this much faster through spans - or layers could reference each other sequentally
-            layers[i].Propogate(activationFunction);
+            layers[i].Propogate();
         }
 
         return layers[layers.Length - 1].activations;

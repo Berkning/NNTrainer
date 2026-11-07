@@ -5,6 +5,7 @@ using UnityEngine;
 public class Layer
 {
     public int size;
+    public ActivationFunction activationFunction;
     public int sizeOfNextLayer;
 
     public double[] input;
@@ -51,7 +52,7 @@ public class Layer
     }
 
     //Input is of length == size
-    public void Propogate(ActivationFunction activation)
+    public void Propogate()
     {
         //Clear results array
         for (int i = 0; i < sizeOfNextLayer; i++) results[i] = 0;
@@ -69,7 +70,7 @@ public class Layer
         {
             results[i] += biases[i];
 
-            activations[i] = activation.GetActivation(results[i]);
+            activations[i] = activationFunction.GetActivation(results[i]);
         }
     }
 }

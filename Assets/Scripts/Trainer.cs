@@ -46,7 +46,7 @@ public class Trainer : MonoBehaviour
             loss += lossFunction.GetLoss(lastLayer.activations[i], targets[i]);
 
             //How much does the loss change with respect to the pre-activation values of each neuron in the layer
-            errorDelta[i] = lossFunction.GetGradient(lastLayer.activations[i], targets[i]) * network.activationFunction.GetGradient(lastLayer.results[i]);
+            errorDelta[i] = lossFunction.GetGradient(lastLayer.activations[i], targets[i]) * lastLayer.activationFunction.GetGradient(lastLayer.results[i]);
         }
 
         //TODO: Display loss
@@ -72,7 +72,7 @@ public class Trainer : MonoBehaviour
                 errorDelta[i] += layer.weights[i, w] * lastErrorDelta[w];
             }
 
-            if (layerIndex > 0) errorDelta[i] *= network.activationFunction.GetGradient(network.layers[layerIndex - 1].results[i]);
+            if (layerIndex > 0) errorDelta[i] *= network.layers[layerIndex - 1].activationFunction.GetGradient(network.layers[layerIndex - 1].results[i]);
         }
 
         for (int b = 0; b < layer.sizeOfNextLayer; b++)
