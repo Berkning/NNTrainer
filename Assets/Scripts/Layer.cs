@@ -13,8 +13,8 @@ public class Layer
     [HideInInspector] public double[] biases;
     [HideInInspector] public double[,] weights;
 
-    [HideInInspector] public double[,] weightGradients;
-    [HideInInspector] public double[] biasGradients;
+    [HideInInspector] public Gradient[,] weightGradients;
+    [HideInInspector] public Gradient[] biasGradients;
 
     [HideInInspector] public double[] results;
     [HideInInspector] public double[] activations; //This holds the same values as the input for the next layer
@@ -24,12 +24,12 @@ public class Layer
         sizeOfNextLayer = _sizeOfNextLayer;
 
         biases = new double[sizeOfNextLayer];
-        biasGradients = new double[sizeOfNextLayer];
+        biasGradients = new Gradient[sizeOfNextLayer];
 
         //Each neuron in this layer, has as many outgoing
         //connections as there are neurons in the next layer
         weights = new double[size, sizeOfNextLayer];
-        weightGradients = new double[size, sizeOfNextLayer];
+        weightGradients = new Gradient[size, sizeOfNextLayer];
 
         results = new double[sizeOfNextLayer];
         activations = new double[sizeOfNextLayer];
@@ -73,4 +73,10 @@ public class Layer
             activations[i] = activationFunction.GetActivation(results[i]);
         }
     }
+}
+
+public struct Gradient
+{
+    public double gradient;
+    public double velocity;
 }

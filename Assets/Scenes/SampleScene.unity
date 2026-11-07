@@ -1228,13 +1228,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FunctionTrainer2D
   network: {fileID: 1509125869}
   lossFunction: {fileID: 575673356}
-  optimizer: {fileID: 1728607045}
+  optimizer: {fileID: 1898477251}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
   resolution: 128
   dataPointCount: 2821
   train: 0
-  trainingIterations: 1
+  trainingIterations: 10
   gizmoSpread: 3.5
 --- !u!1 &1244602194
 GameObject:
@@ -1353,7 +1353,6 @@ MonoBehaviour:
     sizeOfNextLayer: 0
     input: []
     biases: []
-    biasGradients: []
     results: []
     activations: []
   - size: 16
@@ -1361,7 +1360,6 @@ MonoBehaviour:
     sizeOfNextLayer: 0
     input: []
     biases: []
-    biasGradients: []
     results: []
     activations: []
   - size: 16
@@ -1369,7 +1367,6 @@ MonoBehaviour:
     sizeOfNextLayer: 0
     input: []
     biases: []
-    biasGradients: []
     results: []
     activations: []
   - size: 16
@@ -1377,7 +1374,6 @@ MonoBehaviour:
     sizeOfNextLayer: 0
     input: []
     biases: []
-    biasGradients: []
     results: []
     activations: []
   - size: 16
@@ -1385,7 +1381,6 @@ MonoBehaviour:
     sizeOfNextLayer: 0
     input: []
     biases: []
-    biasGradients: []
     results: []
     activations: []
   - size: 16
@@ -1393,7 +1388,6 @@ MonoBehaviour:
     sizeOfNextLayer: 0
     input: []
     biases: []
-    biasGradients: []
     results: []
     activations: []
   - size: 16
@@ -1401,7 +1395,6 @@ MonoBehaviour:
     sizeOfNextLayer: 0
     input: []
     biases: []
-    biasGradients: []
     results: []
     activations: []
   sizeOfOutputLayer: 1
@@ -1687,6 +1680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1937643b78e987a2abc3acbe68aeb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  learningRate: 0.03
+  momentumCoefficient: 0.9
 --- !u!1 &1995066260
 GameObject:
   m_ObjectHideFlags: 0

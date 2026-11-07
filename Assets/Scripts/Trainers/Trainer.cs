@@ -47,7 +47,7 @@ public class Trainer : MonoBehaviour
         {
             for (int w = 0; w < layer.sizeOfNextLayer; w++)
             {
-                layer.weightGradients[i, w] += lastErrorDelta[w] * layer.input[i];
+                layer.weightGradients[i, w].gradient += lastErrorDelta[w] * layer.input[i];
 
                 errorDelta[i] += layer.weights[i, w] * lastErrorDelta[w];
             }
@@ -57,7 +57,7 @@ public class Trainer : MonoBehaviour
 
         for (int b = 0; b < layer.sizeOfNextLayer; b++)
         {
-            layer.biasGradients[b] += lastErrorDelta[b];
+            layer.biasGradients[b].gradient += lastErrorDelta[b];
         }
 
 

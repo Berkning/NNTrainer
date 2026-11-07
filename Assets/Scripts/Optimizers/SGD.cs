@@ -12,18 +12,18 @@ public class SGD : Optimizer
 
             for (int b = 0; b < layer.biases.Length; b++)
             {
-                layer.biases[b] -= learningRate * (layer.biasGradients[b] / batchSize);
+                layer.biases[b] -= learningRate * (layer.biasGradients[b].gradient / batchSize);
 
-                layer.biasGradients[b] = 0d;
+                layer.biasGradients[b].gradient = 0d;
             }
 
             for (int i = 0; i < layer.size; i++)
             {
                 for (int w = 0; w < layer.sizeOfNextLayer; w++)
                 {
-                    layer.weights[i, w] -= learningRate * (layer.weightGradients[i, w] / batchSize);
+                    layer.weights[i, w] -= learningRate * (layer.weightGradients[i, w].gradient / batchSize);
 
-                    layer.weightGradients[i, w] = 0d;
+                    layer.weightGradients[i, w].gradient = 0d;
                 }
             }
         }
