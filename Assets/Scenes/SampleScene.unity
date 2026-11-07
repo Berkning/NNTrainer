@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6dfa8f0744c1f2ba053db7471f1e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  learningRate: 0.03
+  learningRate: 0.003
   firstMomentCoefficient: 0.9
   secondMomentCoefficient: 0.999
   epsilon: 0.00000001
@@ -1201,7 +1201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1225235700
 Transform:
   m_ObjectHideFlags: 0
@@ -1235,10 +1235,10 @@ MonoBehaviour:
   optimizer: {fileID: 936422754}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
-  resolution: 128
-  dataPointCount: 2821
+  resolution: 32
+  dataPointCount: 3709
   train: 0
-  trainingIterations: 10
+  trainingIterations: 1000
   gizmoSpread: 3.5
 --- !u!1 &1244602194
 GameObject:
@@ -1352,7 +1352,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Network
   layers:
-  - size: 2
+  - size: 1
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 16
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
@@ -1428,7 +1442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1621053658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,15 +1456,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   network: {fileID: 1509125869}
-  lossFunction: {fileID: 1669323952}
-  optimizer: {fileID: 1728607045}
+  lossFunction: {fileID: 575673356}
+  optimizer: {fileID: 936422754}
   resolution: 2000
   dataPointCount: 2313
   width: 20
   graphRenderer: {fileID: 918200926}
   networkRenderer: {fileID: 413170016}
   train: 0
-  trainingIterations: 1
+  trainingIterations: 1000
   bench: 0
   benchIterations: 10
 --- !u!4 &1621053659
@@ -1691,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1937643b78e987a2abc3acbe68aeb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  learningRate: 0.01
+  learningRate: 0.03
   momentumCoefficient: 0.9
 --- !u!1 &1995066260
 GameObject:

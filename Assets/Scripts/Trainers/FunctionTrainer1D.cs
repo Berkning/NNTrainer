@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -32,18 +33,7 @@ public class FunctionTrainer1D : Trainer
         {
             train = false;
 
-            for (int m = 0; m < trainingIterations; m++)
-            {
-                for (int i = 0; i < dataPointCount; i++)
-                {
-                    network.Evaluate(new double[] { dataPoints[i].x });
-                    CalculateGradients(new double[] { dataPoints[i].y });
-                }
-
-                ApplyGradients(dataPointCount);
-
-                DrawNetwork();
-            }
+            StartCoroutine(TrainingLoop());
         }
 
         if (bench)
@@ -79,6 +69,25 @@ public class FunctionTrainer1D : Trainer
             UnityEngine.Debug.Log("Gradients took " + stopwatch.ElapsedMilliseconds + "ms");
         }
     }
+
+    private IEnumerator TrainingLoop()
+    {
+        for (int m = 0; m < trainingIterations; m++)
+        {
+            for (int i = 0; i < dataPointCount; i++)
+            {
+                network.Evaluate(new double[] { dataPoints[i].x });
+                CalculateGradients(new double[] { dataPoints[i].y });
+            }
+
+            ApplyGradients(dataPointCount);
+
+            DrawNetwork();
+
+            yield return null;
+        }
+    }
+
 
     private void GetData()
     {
@@ -124,7 +133,7 @@ public class FunctionTrainer1D : Trainer
     private double SampleFunction(double x)
     {
         //return Math.Sin(x);
-        return 1d / (1d + Math.Pow(Math.E, -x)) * Math.Sin(x);
+        return 1d / (1d + Math.Pow(Math.E, -x)) * Math.Sin(x * 5d);
     }
 
     private double SampleNetwork(double x)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,21 +29,27 @@ public class FunctionTrainer2D : Trainer
         {
             train = false;
 
-            for (int m = 0; m < trainingIterations; m++)
-            {
-                for (int i = 0; i < dataPointCount; i++)
-                {
-                    network.Evaluate(new double[] { dataPoints[i].x, dataPoints[i].y });
-                    CalculateGradients(new double[] { dataPoints[i].z });
-                }
-
-                ApplyGradients(dataPointCount);
-
-                DrawNetwork();
-            }
+            StartCoroutine(TrainingLoop());
         }
     }
 
+    private IEnumerator TrainingLoop()
+    {
+        for (int m = 0; m < trainingIterations; m++)
+        {
+            for (int i = 0; i < dataPointCount; i++)
+            {
+                network.Evaluate(new double[] { dataPoints[i].x, dataPoints[i].y });
+                CalculateGradients(new double[] { dataPoints[i].z });
+            }
+
+            ApplyGradients(dataPointCount);
+
+            DrawNetwork();
+
+            yield return null;
+        }
+    }
 
 
     private void DrawImage()
@@ -116,19 +123,19 @@ public class FunctionTrainer2D : Trainer
     //Returns a value between -1 and 1
     private double SampleFunction(double x, double y)
     {
+        return (Math.Sin(x * 10d) + Math.Cos(y * 10d)) / 2d;
         //if (Math.Sign(x) == Math.Sign(y)) return 1d;
         //return -1d;
 
-        x += 0.5d * -Math.Sign(x);
-        y += 0.5d * -Math.Sign(y);
+        //x += 0.5d * -Math.Sign(x);
+        //y += 0.5d * -Math.Sign(y);
 
 
-        if (x * x + y * y > 0.1d) return -1d;
+        if (x * x + y * y > 0.75d) return -1d;
         return 1d;
 
         return Math.Cos(Math.Sqrt(x * x + y * y) * 3d);
         return Math.Cos(x * 20d);
-        return (Math.Sin(x * 10d) + Math.Cos(y * 10d)) / 2d;
         if (x > 0) return x;
         return -1d;
     }
