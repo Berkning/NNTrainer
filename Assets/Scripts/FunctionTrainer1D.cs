@@ -20,7 +20,7 @@ public class FunctionTrainer1D : Trainer
 
     void Start()
     {
-        network.Randomize(1d, 1d);
+        network.Randomize(0.5d, 0.5d);
         DrawGraph();
         DrawNetwork();
         GetData();

@@ -6,18 +6,18 @@ public class Layer
 {
     public int size;
     public ActivationFunction activationFunction;
-    public int sizeOfNextLayer;
+    [HideInInspector] public int sizeOfNextLayer;
 
-    public double[] input;
+    [HideInInspector] public double[] input;
 
-    public double[] biases;
-    public double[,] weights;
+    [HideInInspector] public double[] biases;
+    [HideInInspector] public double[,] weights;
 
-    public double[,] weightGradients;
-    public double[] biasGradients;
+    [HideInInspector] public double[,] weightGradients;
+    [HideInInspector] public double[] biasGradients;
 
-    public double[] results;
-    public double[] activations; //This holds the same values as the input for the next layer
+    [HideInInspector] public double[] results;
+    [HideInInspector] public double[] activations; //This holds the same values as the input for the next layer
 
     public void Initialize(int _sizeOfNextLayer)
     {

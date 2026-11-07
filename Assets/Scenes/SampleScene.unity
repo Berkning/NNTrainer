@@ -1183,12 +1183,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FunctionTrainer2D
   network: {fileID: 1509125869}
-  learningRate: 0.01
+  learningRate: 0.1
   lossFunction: {fileID: 575673356}
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
   resolution: 128
-  dataPointCount: 431
+  dataPointCount: 2821
   train: 0
   trainingIterations: 1
   gizmoSpread: 3.5
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Network
   layers:
   - size: 2
-    activationFunction: {fileID: 1856447934}
+    activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1279,7 +1279,7 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 16
-    activationFunction: {fileID: 1856447934}
+    activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1287,7 +1287,7 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 16
-    activationFunction: {fileID: 1856447934}
+    activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1295,7 +1295,23 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 16
-    activationFunction: {fileID: 1856447934}
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    biasGradients: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    biasGradients: []
+    results: []
+    activations: []
+  - size: 16
+    activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
