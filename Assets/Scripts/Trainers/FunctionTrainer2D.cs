@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class FunctionTrainer2D : Trainer
 {
-    [SerializeField] private RawImage image;
+    [Space(10), SerializeField] private RawImage image;
     [SerializeField] private RawImage netImage;
     [SerializeField] private int resolution;
     [SerializeField] private int dataPointCount;

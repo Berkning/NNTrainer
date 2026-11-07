@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FunctionTrainer1D : Trainer
 {
-    [SerializeField] private int resolution;
+    [Space(10), SerializeField] private int resolution;
     [SerializeField] private int dataPointCount;
     [SerializeField] private double width = 10;
 
