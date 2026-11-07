@@ -5,6 +5,8 @@ public class LossGraph : MonoBehaviour
 {
     [SerializeField] private float width = 2f;
     [SerializeField] private float height = 2f;
+    //TODO: should also have maxHeight in case a point exceeds it
+    [SerializeField] private float minHeight = 1f;
     [SerializeField] private int capacity = 10000;
     [SerializeField] private LineRenderer line;
     [SerializeField] private Vector3[] points;
@@ -29,6 +31,7 @@ public class LossGraph : MonoBehaviour
     public void AddPoint(float loss)
     {
         float increment = width / capacity;
+        float highestPoint = float.MinValue;
 
         for (int i = capacity - 1; i > 0; i--)
         {
@@ -36,10 +39,19 @@ public class LossGraph : MonoBehaviour
 
             points[i].x = reverseIndex * increment;
             points[i].y = points[i - 1].y;
+            if (points[i].y > highestPoint) highestPoint = points[i].y;
         }
 
         points[0].x = (capacity - 1) * increment;
         points[0].y = loss * height;
+
+        if (points[0].y > highestPoint) highestPoint = points[0].y;
+
+        if (highestPoint < minHeight)
+        {
+            transform.localScale = new Vector3(1, minHeight / highestPoint, 1);
+        }
+        else transform.localScale = new Vector3(1, 1, 1);
 
         line.SetPositions(points);
     }

@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   width: 4
   height: 4
-  capacity: 1000
+  capacity: 100
   line: {fileID: 1574585523}
   points: []
   to: 0

@@ -130,6 +130,7 @@ public class FunctionTrainer2D : Trainer
     {
         //if (Math.Sign(x) == Math.Sign(y)) return 1d;
         //return -1d;
+        return (Math.Sin(x * 10d) + Math.Cos(y * 10d)) / 2d;
 
         x += 0.5d * -Math.Sign(x);
         y += 0.5d * -Math.Sign(y);
@@ -138,7 +139,6 @@ public class FunctionTrainer2D : Trainer
         if (x * x + y * y > 0.1d) return -1d;
         return 1d;
 
-        return (Math.Sin(x * 10d) + Math.Cos(y * 10d)) / 2d;
         return Math.Cos(Math.Sqrt(x * x + y * y) * 3d);
         return Math.Cos(x * 20d);
         if (x > 0) return x;
