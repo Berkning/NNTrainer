@@ -4,9 +4,7 @@ using UnityEngine;
 public class LossGraph : MonoBehaviour
 {
     [SerializeField] private float width = 2f;
-    [SerializeField] private float height = 2f;
-    //TODO: should also have maxHeight in case a point exceeds it
-    [SerializeField] private float minHeight = 1f;
+    [SerializeField] private float height = 4f;
     [SerializeField] private int capacity = 10000;
     [SerializeField] private LineRenderer line;
     [SerializeField] private Vector3[] points;
@@ -47,11 +45,7 @@ public class LossGraph : MonoBehaviour
 
         if (points[0].y > highestPoint) highestPoint = points[0].y;
 
-        if (highestPoint < minHeight)
-        {
-            transform.localScale = new Vector3(1, minHeight / highestPoint, 1);
-        }
-        else transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(1, height / highestPoint, 1);
 
         line.SetPositions(points);
     }

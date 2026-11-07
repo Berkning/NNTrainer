@@ -837,7 +837,7 @@ Transform:
   m_GameObject: {fileID: 910801787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   resolution: 128
   dataPointCount: 3709
   train: 0
-  trainingIterations: 1000
+  trainingIterations: 10000
   gizmoSpread: 3.5
 --- !u!1 &1244602194
 GameObject:
@@ -1541,7 +1541,7 @@ Transform:
   m_GameObject: {fileID: 1574585521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   width: 4
   height: 4
-  capacity: 100
+  capacity: 1000
   line: {fileID: 1574585523}
   points: []
   to: 0
