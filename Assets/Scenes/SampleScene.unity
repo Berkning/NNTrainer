@@ -1601,7 +1601,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.01
+    widthMultiplier: 0.025
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   width: 4
   height: 4
-  capacity: 1000
+  capacity: 100
   line: {fileID: 1574585523}
   points: []
   to: 0
