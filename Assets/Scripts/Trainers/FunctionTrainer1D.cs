@@ -7,7 +7,6 @@ public class FunctionTrainer1D : Trainer
 {
     [Space(10), SerializeField] private int resolution;
     [SerializeField] private int dataPointCount;
-    [SerializeField] private bool useSGD;
     [SerializeField] private double width = 10;
 
     [SerializeField] private LineRenderer graphRenderer;
@@ -79,10 +78,8 @@ public class FunctionTrainer1D : Trainer
             {
                 network.Evaluate(new double[] { dataPoints[i].x });
                 CalculateGradients(new double[] { dataPoints[i].y });
-                if (useSGD) ApplyGradients(1);
             }
 
-            if (!useSGD) ApplyGradients(dataPointCount);
 
             DrawNetwork();
             yield return null;

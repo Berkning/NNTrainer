@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,9 @@ public class FunctionTrainer2D : Trainer
 {
     [Space(10), SerializeField] private RawImage image;
     [SerializeField] private RawImage netImage;
-    [SerializeField] private LossGraph lossGraph;
-    [SerializeField] private bool useSGD;
     [SerializeField] private int resolution;
     [SerializeField] private int dataPointCount;
     [SerializeField] private bool train;
-    [SerializeField] private int trainingIterations;
     [Space(10), SerializeField] private float gizmoSpread;
 
     private (double x, double y, double z)[] dataPoints;
@@ -21,7 +19,7 @@ public class FunctionTrainer2D : Trainer
     {
         network.Randomize(1d, 1d);
         DrawImage();
-        DrawNetwork();
+        VisualizeNetwork();
         GetData();
     }
 
@@ -31,28 +29,18 @@ public class FunctionTrainer2D : Trainer
         {
             train = false;
 
-            StartCoroutine(TrainingLoop());
-        }
-    }
+            double[] data = new double[dataPointCount * 3];
 
-    private IEnumerator TrainingLoop()
-    {
-        for (int m = 0; m < trainingIterations; m++)
-        {
             for (int i = 0; i < dataPointCount; i++)
             {
-                network.Evaluate(new double[] { dataPoints[i].x, dataPoints[i].y });
-                CalculateGradients(new double[] { dataPoints[i].z });
-                if (useSGD) ApplyGradients(1);
+                data[i * 3] = dataPoints[i].x;
+                data[i * 3 + 1] = dataPoints[i].y;
+                data[i * 3 + 2] = dataPoints[i].z;
             }
 
-            if (!useSGD) ApplyGradients(1);
+            DataSet dataSet = new DataSet(data, 2, 1);
 
-            lossGraph.AddPoint((float)GetAndResetLoss());
-
-            DrawNetwork();
-
-            yield return null;
+            StartTraining(dataSet);
         }
     }
 
@@ -84,7 +72,7 @@ public class FunctionTrainer2D : Trainer
         image.texture = texture;
     }
 
-    private void DrawNetwork()
+    protected override void VisualizeNetwork()
     {
         Texture2D texture = new Texture2D(resolution, resolution);
 

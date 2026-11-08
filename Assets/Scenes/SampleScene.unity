@@ -1186,14 +1186,15 @@ MonoBehaviour:
   network: {fileID: 1503272708}
   lossFunction: {fileID: 1669323952}
   optimizer: {fileID: 936422754}
+  lossGraph: {fileID: 1574585524}
+  batchSize: 1
+  epochs: 1000
+  useSGD: 0
   image: {fileID: 448155717}
   netImage: {fileID: 104593108}
-  lossGraph: {fileID: 1574585524}
-  useSGD: 0
   resolution: 128
   dataPointCount: 3709
   train: 0
-  trainingIterations: 10000
   gizmoSpread: 3.5
 --- !u!1 &1244602194
 GameObject:
@@ -1671,7 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   width: 4
   height: 4
-  capacity: 100
+  capacity: 1000
   line: {fileID: 1574585523}
   points: []
   to: 0
@@ -1707,9 +1708,12 @@ MonoBehaviour:
   network: {fileID: 1509125869}
   lossFunction: {fileID: 575673356}
   optimizer: {fileID: 936422754}
+  lossGraph: {fileID: 0}
+  batchSize: 1
+  epochs: 1
+  useSGD: 1
   resolution: 2000
   dataPointCount: 2313
-  useSGD: 1
   width: 20
   graphRenderer: {fileID: 918200926}
   networkRenderer: {fileID: 413170016}

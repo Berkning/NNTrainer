@@ -4,6 +4,9 @@ using UnityEngine;
 public class LossGraph : MonoBehaviour
 {
     [SerializeField] private float width = 2f;
+    //TODO: Do something to allow very flat graphs to stay somewhere
+    //TODO: in the middle of the graph window instead of drifting
+    //TODO: towards the top.
     [SerializeField] private float height = 4f;
     [SerializeField] private int capacity = 10000;
     [SerializeField] private LineRenderer line;
