@@ -10,7 +10,6 @@ public class Trainer : MonoBehaviour
     [SerializeField] private LossGraph lossGraph;
     [SerializeField] private int batchSize = 1;
     [SerializeField] private int epochs = 1;
-    [SerializeField] private bool useSGD;
     private double accumulatedLoss = 0d;
     private int lossAccumulationCount = 0;
 
@@ -46,8 +45,12 @@ public class Trainer : MonoBehaviour
     {
         for (int e = 0; e < epochs; e++)
         {
+            int batchCount = 0;
+
             for (int d = 0; d < dataSet.Length; d++)
             {
+                batchCount++;
+
                 double[] input = new double[dataSet.inputWidth]; //TODO: Just get a span from dataset
                 for (int i = 0; i < dataSet.inputWidth; i++)
                 {
@@ -62,10 +65,16 @@ public class Trainer : MonoBehaviour
 
                 network.Evaluate(input);
                 CalculateGradients(label);
-                if (useSGD) ApplyGradients(1);
+
+                //BatchCount will ofc never be bigger but just to be safe
+                if (batchCount >= batchSize)
+                {
+                    ApplyGradients(batchCount);
+                    batchCount = 0;
+                }
             }
 
-            if (!useSGD) ApplyGradients(dataSet.Length);
+            if (batchCount > 0) ApplyGradients(batchCount);
 
             lossGraph.AddPoint((float)GetAndResetLoss());
 
