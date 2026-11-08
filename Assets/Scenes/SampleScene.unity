@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6dfa8f0744c1f2ba053db7471f1e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  learningRate: 0.001
+  learningRate: 0.01
   firstMomentCoefficient: 0.9
   secondMomentCoefficient: 0.999
   epsilon: 0.00000001
@@ -1154,7 +1154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1225235700
 Transform:
   m_ObjectHideFlags: 0
@@ -1300,14 +1300,14 @@ MonoBehaviour:
     biases: []
     results: []
     activations: []
-  - size: 8
+  - size: 4
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
@@ -1692,7 +1692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1621053658
 MonoBehaviour:
   m_ObjectHideFlags: 0

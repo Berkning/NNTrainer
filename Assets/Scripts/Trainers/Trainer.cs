@@ -65,7 +65,7 @@ public class Trainer : MonoBehaviour
                 if (useSGD) ApplyGradients(1);
             }
 
-            if (!useSGD) ApplyGradients(1);
+            if (!useSGD) ApplyGradients(dataSet.Length);
 
             lossGraph.AddPoint((float)GetAndResetLoss());
 
