@@ -1154,7 +1154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1225235700
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,7 +1692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1621053658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1706,11 +1706,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   network: {fileID: 1509125869}
-  lossFunction: {fileID: 575673356}
+  lossFunction: {fileID: 1669323952}
   optimizer: {fileID: 936422754}
-  lossGraph: {fileID: 0}
+  lossGraph: {fileID: 1574585524}
   batchSize: 1
-  epochs: 1
+  epochs: 1000
   useSGD: 1
   resolution: 2000
   dataPointCount: 2313

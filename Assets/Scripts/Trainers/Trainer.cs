@@ -102,9 +102,6 @@ public class Trainer : MonoBehaviour
         accumulatedLoss += loss;
         lossAccumulationCount++;
 
-        //TODO: Display loss
-        //Debug.Log(loss);
-
         PropogateError(errorDelta, lastLayerIndex);
     }
 

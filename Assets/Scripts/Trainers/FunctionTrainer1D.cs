@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -23,7 +22,7 @@ public class FunctionTrainer1D : Trainer
     {
         network.Randomize(0.5d, 0.5d);
         DrawGraph();
-        DrawNetwork();
+        VisualizeNetwork();
         GetData();
     }
 
@@ -33,7 +32,17 @@ public class FunctionTrainer1D : Trainer
         {
             train = false;
 
-            StartCoroutine(TrainingLoop());
+            double[] data = new double[dataPointCount * 2];
+
+            for (int i = 0; i < dataPointCount; i++)
+            {
+                data[i * 2] = dataPoints[i].x;
+                data[i * 2 + 1] = dataPoints[i].y;
+            }
+
+            DataSet dataSet = new DataSet(data, 1, 1);
+
+            StartTraining(dataSet);
         }
 
         if (bench)
@@ -70,22 +79,6 @@ public class FunctionTrainer1D : Trainer
         }
     }
 
-    private IEnumerator TrainingLoop()
-    {
-        for (int m = 0; m < trainingIterations; m++)
-        {
-            for (int i = 0; i < dataPointCount; i++)
-            {
-                network.Evaluate(new double[] { dataPoints[i].x });
-                CalculateGradients(new double[] { dataPoints[i].y });
-            }
-
-
-            DrawNetwork();
-            yield return null;
-        }
-    }
-
 
     private void GetData()
     {
@@ -113,7 +106,7 @@ public class FunctionTrainer1D : Trainer
         graphRenderer.SetPositions(points);
     }
 
-    private void DrawNetwork()
+    protected override void VisualizeNetwork()
     {
         Vector3[] points = new Vector3[resolution];
 
