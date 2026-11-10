@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &611821878
 Transform:
   m_ObjectHideFlags: 0
@@ -711,8 +711,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e434129e0752e775b8ead3a8321878e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  objects: []
-  textures: []
+  soPath: /home/berkning/Unity/Projects/NNTrainer/Assets/DataSets/Minecraft/Blocks/ScriptableObjects/
+  texturesPath: /home/berkning/Unity/Projects/NNTrainer/Assets/DataSets/Minecraft/Blocks/Textures/
+  content: "%YAML 1.1\n%TAG !u! tag:unity3d.com,2011:\n--- !u!114 &11400000\nMonoBehaviour:\n 
+    m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance:
+    {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 0}\n  m_Enabled:
+    1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 8392366f86db6f08b8c825fae560af55,
+    type: 3}\n  m_Name: PLACEHOLDERNAME\n  m_EditorClassIdentifier: Assembly-CSharp::MinecraftBlock\n 
+    name: PLACEHOLDERNAME\n  texture: {fileID: 2800000, guid: PLACEHOLDERGUID, type:
+    3}"
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

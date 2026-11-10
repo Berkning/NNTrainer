@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8392366f86db6f08b8c825fae560af55, type: 3}
+  m_Name: exposed_copper_bulb_powered
+  m_EditorClassIdentifier: Assembly-CSharp::MinecraftBlock
+  name: exposed_copper_bulb_powered
+  texture: {fileID: 2800000, guid: 29ea6bbddaef8f9dd970530ea1d2ed50, type: 3}

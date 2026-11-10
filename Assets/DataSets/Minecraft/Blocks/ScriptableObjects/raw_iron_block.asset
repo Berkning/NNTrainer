@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8392366f86db6f08b8c825fae560af55, type: 3}
+  m_Name: raw_iron_block
+  m_EditorClassIdentifier: Assembly-CSharp::MinecraftBlock
+  name: raw_iron_block
+  texture: {fileID: 2800000, guid: 0c2dd6102aa1e3a49b81d3a0ebbc2ed5, type: 3}
