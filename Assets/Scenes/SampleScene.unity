@@ -1155,7 +1155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1225235700
 Transform:
   m_ObjectHideFlags: 0
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FunctionTrainer2D
   network: {fileID: 1503272708}
-  validationPercent: 0
+  validationPercent: 0.1
   lossFunction: {fileID: 1669323952}
   optimizer: {fileID: 936422754}
   trainingLossGraph: {fileID: 1574585524}
@@ -1443,70 +1443,70 @@ MonoBehaviour:
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 4
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 8
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 64
+  - size: 4
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
@@ -1862,7 +1862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1621053658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   network: {fileID: 1509125869}
-  validationPercent: 0
+  validationPercent: 0.1
   lossFunction: {fileID: 1669323952}
   optimizer: {fileID: 936422754}
   trainingLossGraph: {fileID: 1574585524}

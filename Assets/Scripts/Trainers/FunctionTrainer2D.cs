@@ -139,7 +139,8 @@ public class FunctionTrainer2D : Trainer
             for (int i = 0; i < dataPointCount; i++)
             {
                 double t = (dataPoints[i].z + 1d) / 2d; //Between 0 -> 1
-                Gizmos.color = Color.Lerp(Color.black, Color.white, (float)t);
+                if (i < dataPointCount - Mathf.FloorToInt(validationPercent * dataPointCount)) Gizmos.color = Color.Lerp(Color.black, Color.white, (float)t);
+                else Gizmos.color = Color.Lerp(Color.purple, Color.red, (float)t);
 
                 Vector3 position = new Vector3((float)dataPoints[i].x, (float)dataPoints[i].y, 0f) * gizmoSpread;
                 position += image.transform.position;

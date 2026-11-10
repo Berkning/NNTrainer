@@ -137,6 +137,15 @@ public class FunctionTrainer1D : Trainer
     void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        if (Application.isPlaying) for (int i = 0; i < dataPointCount; i++) Gizmos.DrawSphere(new Vector3((float)dataPoints[i].x, (float)dataPoints[i].y, 0f), 0.025f);
+        if (Application.isPlaying)
+        {
+            for (int i = 0; i < dataPointCount; i++)
+            {
+                if (i < dataPointCount - Mathf.FloorToInt(validationPercent * dataPointCount)) Gizmos.color = Color.white;
+                else Gizmos.color = Color.red;
+
+                Gizmos.DrawSphere(new Vector3((float)dataPoints[i].x, (float)dataPoints[i].y, 0f), 0.025f);
+            }
+        }
     }
 }

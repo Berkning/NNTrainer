@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class LossGraph : MonoBehaviour
 {
+    //TODO: Have both validation and training graph in this one class,
+    //TODO: bc otherwise their height will scale differently which looks dumb
+
     [SerializeField] private float width = 2f;
     //TODO: Do something to allow very flat graphs to stay somewhere
     //TODO: in the middle of the graph window instead of drifting
