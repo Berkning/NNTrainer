@@ -9,6 +9,6 @@ public class BinaryCrossEntropy : LossFunction
 
     public override double GetGradient(double pred, double target)
     {
-        return 0d;
+        return (pred - target) / (pred - pred * pred);
     }
 }

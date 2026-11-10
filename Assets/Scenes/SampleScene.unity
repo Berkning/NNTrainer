@@ -256,7 +256,7 @@ MonoBehaviour:
     results: []
     activations: []
   - size: 8
-    activationFunction: {fileID: 781237234}
+    activationFunction: {fileID: 1621876224}
     sizeOfNextLayer: 0
     input: []
     biases: []
@@ -1214,6 +1214,50 @@ MonoBehaviour:
   firstMomentCoefficient: 0.9
   secondMomentCoefficient: 0.999
   epsilon: 0.00000001
+--- !u!1 &978889646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 978889647}
+  - component: {fileID: 978889648}
+  m_Layer: 0
+  m_Name: BinaryCrossEntropy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &978889647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978889646}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1254230366}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &978889648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978889646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34cb9cc31a131498ac958eebd1ca34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BinaryCrossEntropy
 --- !u!1 &995474785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   network: {fileID: 38693123}
   validationPercent: 0
-  lossFunction: {fileID: 1669323952}
+  lossFunction: {fileID: 978889648}
   optimizer: {fileID: 936422754}
   trainingLossGraph: {fileID: 1574585524}
   validationLossGraph: {fileID: 1559716040}
@@ -2360,6 +2404,7 @@ Transform:
   m_Children:
   - {fileID: 1669323951}
   - {fileID: 575673355}
+  - {fileID: 978889647}
   m_Father: {fileID: 2063380269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503272707
