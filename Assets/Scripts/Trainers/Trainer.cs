@@ -5,9 +5,11 @@ using UnityEngine;
 public class Trainer : MonoBehaviour
 {
     [SerializeField] protected Network network;
+    [SerializeField, Range(0f, 1f)] protected float validationPercent;
     [SerializeField] private LossFunction lossFunction;
     [SerializeField] private Optimizer optimizer;
-    [SerializeField] private LossGraph lossGraph;
+    [SerializeField] private LossGraph trainingLossGraph;
+    [SerializeField] private LossGraph validationLossGraph;
     [SerializeField] private int batchSize = 1;
     [SerializeField] private int epochs = 1;
     private double accumulatedLoss = 0d;
@@ -21,6 +23,33 @@ public class Trainer : MonoBehaviour
         lossAccumulationCount = 0;
 
         return loss;
+    }
+
+    public double GetValidationLoss(DataSet dataSet)
+    {
+        if (dataSet.ValidationLength == 0) return 0d;
+
+        double loss = 0d;
+        double[] label = new double[dataSet.outputWidth];
+
+        Layer lastLayer = network.layers[network.layers.Length - 1];
+
+        for (int d = dataSet.TrainingLength; d < dataSet.TotalLength; d++)
+        {
+            //Get label for current dataPoint
+            for (int i = 0; i < dataSet.outputWidth; i++)
+            {
+                label[i] = dataSet[d, i + dataSet.inputWidth];
+            }
+
+            //Get individual loss for each output neuron
+            for (int i = 0; i < network.sizeOfOutputLayer; i++)
+            {
+                loss += lossFunction.GetLoss(lastLayer.activations[i], label[i]);
+            }
+        }
+
+        return loss / dataSet.ValidationLength;
     }
 
     public void StartTraining(DataSet dataSet)
@@ -47,7 +76,7 @@ public class Trainer : MonoBehaviour
         {
             int batchCount = 0;
 
-            for (int d = 0; d < dataSet.Length; d++)
+            for (int d = 0; d < dataSet.TrainingLength; d++)
             {
                 batchCount++;
 
@@ -66,7 +95,9 @@ public class Trainer : MonoBehaviour
                 network.Evaluate(input);
                 CalculateGradients(label);
 
-                //BatchCount will ofc never be bigger but just to be safe
+                //BatchCount will ofc never be bigger, but
+                //it can be changed during runtime, which
+                //will cause edge cases
                 if (batchCount >= batchSize)
                 {
                     ApplyGradients(batchCount);
@@ -76,7 +107,8 @@ public class Trainer : MonoBehaviour
 
             if (batchCount > 0) ApplyGradients(batchCount);
 
-            lossGraph.AddPoint((float)GetAndResetLoss());
+            trainingLossGraph.AddPoint((float)GetAndResetLoss());
+            validationLossGraph.AddPoint((float)GetValidationLoss(dataSet));
 
             VisualizeNetwork();
 
@@ -156,7 +188,12 @@ public class DataSet
     //output from the network, or the 'label'
     private double[] data;
 
-    public int Length;
+    //The amount of entries dedicated to training
+    public int TrainingLength;
+    //The amount of entries dedicated to validation
+    public int ValidationLength;
+    //The total amount of entries
+    public int TotalLength;
 
     //How wide the networks input layer is
     public int inputWidth;
@@ -173,12 +210,17 @@ public class DataSet
 
 
 
-    public DataSet(double[] _data, int _inputWidth, int _outputWidth)
+    public DataSet(double[] _data, int _inputWidth, int _outputWidth, float validationPercent)
     {
         data = _data;
         inputWidth = _inputWidth;
         outputWidth = _outputWidth;
         dataPointWidth = inputWidth + outputWidth;
-        Length = data.Length / dataPointWidth;
+        TotalLength = data.Length / dataPointWidth;
+
+        ValidationLength = Mathf.RoundToInt(validationPercent * TotalLength);
+        TrainingLength = TotalLength - ValidationLength;
+
+        Debug.Log("Training Entries: " + TrainingLength + "   Validation Entries: " + ValidationLength);
     }
 }

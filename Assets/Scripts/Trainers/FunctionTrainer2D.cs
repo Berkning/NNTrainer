@@ -36,7 +36,7 @@ public class FunctionTrainer2D : Trainer
                 data[i * 3 + 2] = dataPoints[i].z;
             }
 
-            DataSet dataSet = new DataSet(data, 2, 1);
+            DataSet dataSet = new DataSet(data, 2, 1, validationPercent);
 
             StartTraining(dataSet);
         }

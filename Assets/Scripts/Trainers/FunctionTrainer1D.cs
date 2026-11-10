@@ -40,7 +40,7 @@ public class FunctionTrainer1D : Trainer
                 data[i * 2 + 1] = dataPoints[i].y;
             }
 
-            DataSet dataSet = new DataSet(data, 1, 1);
+            DataSet dataSet = new DataSet(data, 1, 1, validationPercent);
 
             StartTraining(dataSet);
         }

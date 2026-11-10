@@ -48,7 +48,7 @@ public class LossGraph : MonoBehaviour
 
         if (points[0].y > highestPoint) highestPoint = points[0].y;
 
-        transform.localScale = new Vector3(1, height / highestPoint, 1);
+        if (highestPoint > 0f) transform.localScale = new Vector3(1, height / highestPoint, 1);
 
         line.SetPositions(points);
     }
