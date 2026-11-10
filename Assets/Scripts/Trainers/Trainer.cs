@@ -31,16 +31,25 @@ public class Trainer : MonoBehaviour
 
         double loss = 0d;
         double[] label = new double[dataSet.outputWidth];
+        double[] input = new double[dataSet.inputWidth];
 
         Layer lastLayer = network.layers[network.layers.Length - 1];
 
         for (int d = dataSet.TrainingLength; d < dataSet.TotalLength; d++)
         {
-            //Get label for current dataPoint
+            //Get the input for the current dataPoint
+            for (int i = 0; i < dataSet.inputWidth; i++)
+            {
+                input[i] = dataSet[d, i];
+            }
+
+            //Get label for the current dataPoint
             for (int i = 0; i < dataSet.outputWidth; i++)
             {
                 label[i] = dataSet[d, i + dataSet.inputWidth];
             }
+
+            network.Evaluate(input);
 
             //Get individual loss for each output neuron
             for (int i = 0; i < network.sizeOfOutputLayer; i++)
