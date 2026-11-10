@@ -186,83 +186,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Network
   layers:
   - size: 256
-    activationFunction: {fileID: 79272931}
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    results: []
-    activations: []
-  - size: 128
-    activationFunction: {fileID: 79272931}
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    results: []
-    activations: []
-  - size: 96
-    activationFunction: {fileID: 79272931}
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
   - size: 64
-    activationFunction: {fileID: 79272931}
+    activationFunction: {fileID: 781237234}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 96
+    activationFunction: {fileID: 781237234}
+    sizeOfNextLayer: 0
+    input: []
+    biases: []
+    results: []
+    activations: []
+  - size: 64
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
   - size: 48
-    activationFunction: {fileID: 79272931}
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
   - size: 32
-    activationFunction: {fileID: 79272931}
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
   - size: 24
-    activationFunction: {fileID: 79272931}
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
   - size: 16
-    activationFunction: {fileID: 79272931}
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
   - size: 16
-    activationFunction: {fileID: 79272931}
+    activationFunction: {fileID: 781237234}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
   - size: 16
-    activationFunction: {fileID: 79272931}
-    sizeOfNextLayer: 0
-    input: []
-    biases: []
-    results: []
-    activations: []
-  - size: 8
     activationFunction: {fileID: 1621876224}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  sizeOfOutputLayer: 1
+  sizeOfOutputLayer: 9
   testInput:
   - 5.42
   evaluate: 0
@@ -1210,7 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6dfa8f0744c1f2ba053db7471f1e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  learningRate: 0.0003
+  learningRate: 0.0001
   firstMomentCoefficient: 0.9
   secondMomentCoefficient: 0.999
   epsilon: 0.00000001
@@ -1309,7 +1302,7 @@ MonoBehaviour:
   trainingLossGraph: {fileID: 1574585524}
   validationLossGraph: {fileID: 1559716040}
   batchSize: 32
-  epochs: 1000
+  epochs: 10000
   minecraftItems:
   - {fileID: 11400000, guid: 40a1f6c93d2ed07c4ad197109a57f3d2, type: 2}
   - {fileID: 11400000, guid: 8476adc2c7ebe787dbcbeb5003212d89, type: 2}

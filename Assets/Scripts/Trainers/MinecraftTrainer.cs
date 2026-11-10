@@ -29,13 +29,11 @@ public class MinecraftTrainer : Trainer
     {
         if (useBlackAndWhite)
         {
-            double[] data = new double[minecraftItems.Length * 257]; //256 black/white values per texture + 1 output value per texture
+            double[] data = new double[minecraftItems.Length * 265]; //256 black/white values per texture + 1 output value per texture
 
             for (int i = 0; i < minecraftItems.Length; i++)
             {
-                int indexOffset = i * 257;
-
-                double output = minecraftItems[i].isMusicDisc ? 1d : 0d;
+                int indexOffset = i * 265;
 
 
                 for (int x = 0; x < 16; x++)
@@ -56,11 +54,19 @@ public class MinecraftTrainer : Trainer
                 }
 
 
-                data[indexOffset + 256] = output;
+                data[indexOffset + 256] = minecraftItems[i].isDye ? 1d : 0d;
+                data[indexOffset + 257] = minecraftItems[i].isSpawnEgg ? 1d : 0d;
+                data[indexOffset + 258] = minecraftItems[i].isArmorTrim ? 1d : 0d;
+                data[indexOffset + 259] = minecraftItems[i].isMusicDisc ? 1d : 0d;
+                data[indexOffset + 260] = minecraftItems[i].isPotion ? 1d : 0d;
+                data[indexOffset + 261] = minecraftItems[i].isResource ? 1d : 0d;
+                data[indexOffset + 262] = minecraftItems[i].isArmor ? 1d : 0d;
+                data[indexOffset + 263] = minecraftItems[i].isEdible ? 1d : 0d;
+                data[indexOffset + 264] = minecraftItems[i].isTool ? 1d : 0d;
             }
 
 
-            dataSet = new DataSet(data, 256, 1, validationPercent);
+            dataSet = new DataSet(data, 256, 9, validationPercent);
         }
     }
 }
