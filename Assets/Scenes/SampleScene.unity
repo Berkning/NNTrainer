@@ -185,49 +185,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Network
   layers:
-  - size: 2
+  - size: 256
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 4
+  - size: 128
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 8
+  - size: 96
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 64
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 48
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 32
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
     biases: []
     results: []
     activations: []
-  - size: 16
+  - size: 24
     activationFunction: {fileID: 79272931}
     sizeOfNextLayer: 0
     input: []
@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6dfa8f0744c1f2ba053db7471f1e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  learningRate: 0.001
+  learningRate: 0.0003
   firstMomentCoefficient: 0.9
   secondMomentCoefficient: 0.999
   epsilon: 0.00000001
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   trainingLossGraph: {fileID: 1574585524}
   validationLossGraph: {fileID: 1559716040}
   batchSize: 32
-  epochs: 1
+  epochs: 1000
   minecraftItems:
   - {fileID: 11400000, guid: 40a1f6c93d2ed07c4ad197109a57f3d2, type: 2}
   - {fileID: 11400000, guid: 8476adc2c7ebe787dbcbeb5003212d89, type: 2}
@@ -2122,6 +2122,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76ed37bdf9cec46ceabd9f3f3d7bfd76, type: 2}
   - {fileID: 11400000, guid: 9adda122165e393869a7a8ebb3321742, type: 2}
   - {fileID: 11400000, guid: 9854270db0a06dccd83816121a414ac8, type: 2}
+  dataSet:
+    data: []
+    TrainingLength: 0
+    ValidationLength: 0
+    TotalLength: 0
+    inputWidth: 0
+    outputWidth: 0
+    dataPointWidth: 0
+  train: 0
+  useBlackAndWhite: 1
 --- !u!1 &1088833461
 GameObject:
   m_ObjectHideFlags: 0

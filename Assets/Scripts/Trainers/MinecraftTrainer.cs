@@ -5,6 +5,7 @@ public class MinecraftTrainer : Trainer
     //TODO: Try binary cross entropy as loss function
     [SerializeField] private MinecraftItem[] minecraftItems;
     [SerializeField] private DataSet dataSet;
+    [SerializeField] private bool train;
     [SerializeField] private bool useBlackAndWhite = true;
 
 
@@ -14,16 +15,28 @@ public class MinecraftTrainer : Trainer
         GetData();
     }
 
+    void Update()
+    {
+        if (train)
+        {
+            train = false;
+
+            StartTraining(dataSet);
+        }
+    }
+
     private void GetData()
     {
-
         if (useBlackAndWhite)
         {
             double[] data = new double[minecraftItems.Length * 257]; //256 black/white values per texture + 1 output value per texture
 
             for (int i = 0; i < minecraftItems.Length; i++)
             {
-                double output = minecraftItems[i].isArmor ? 1d : 0d;
+                int indexOffset = i * 257;
+
+                double output = minecraftItems[i].isMusicDisc ? 1d : 0d;
+
 
                 for (int x = 0; x < 16; x++)
                 {
@@ -32,10 +45,22 @@ public class MinecraftTrainer : Trainer
                         Texture2D texture2D = (Texture2D)minecraftItems[i].texture;
                         Color color = texture2D.GetPixel(x, y);
 
-                        Debug.Log(color);
+                        double grayScale = color.grayscale;
+
+                        if (color.a == 0d) grayScale = -1d;
+
+                        int pixelIndex = x * 16 + y;
+
+                        data[indexOffset + pixelIndex] = grayScale;
                     }
                 }
+
+
+                data[indexOffset + 256] = output;
             }
+
+
+            dataSet = new DataSet(data, 256, 1, validationPercent);
         }
     }
 }

@@ -65,13 +65,13 @@ public class Trainer : MonoBehaviour
     {
         if (dataSet.inputWidth != network.layers[0].size)
         {
-            Console.WriteLine("DataSet doesn't fit network input. Expected: " + network.layers[0].size + " Got: " + dataSet.inputWidth);
+            Debug.Log("DataSet doesn't fit network input. Expected: " + network.layers[0].size + " Got: " + dataSet.inputWidth);
             return;
         }
 
         if (dataSet.outputWidth != network.sizeOfOutputLayer)
         {
-            Console.WriteLine("DataSet doesn't fit network output. Expected: " + network.sizeOfOutputLayer + " Got: " + dataSet.outputWidth);
+            Debug.Log("DataSet doesn't fit network output. Expected: " + network.sizeOfOutputLayer + " Got: " + dataSet.outputWidth);
             return;
         }
 
