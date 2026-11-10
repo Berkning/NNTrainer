@@ -187,6 +187,7 @@ public class Trainer : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public class DataSet
 {
     //Stores the data in an order such that
@@ -195,7 +196,7 @@ public class DataSet
     //or the 'features', immediately followed
     //by the doubles that make up the expected
     //output from the network, or the 'label'
-    private double[] data;
+    [SerializeField] private double[] data;
 
     //The amount of entries dedicated to training
     public int TrainingLength;

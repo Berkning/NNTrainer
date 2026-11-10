@@ -15,10 +15,11 @@ MonoBehaviour:
   name: potion_bottle_harm
   texture: {fileID: 2800000, guid: eba5e07a1f6e04843bb149001441b1ed, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
   isArmor: 0
   isResource: 0
   isPotion: 1
   isMusicDisc: 0
   isArmorTrim: 0
   isSpawnEgg: 0
+  isDye: 0

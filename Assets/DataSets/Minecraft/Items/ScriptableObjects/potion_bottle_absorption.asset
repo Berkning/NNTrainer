@@ -15,10 +15,11 @@ MonoBehaviour:
   name: potion_bottle_absorption
   texture: {fileID: 2800000, guid: 37ffdd9d9ccebed0baec3a2875f7649b, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
   isArmor: 0
   isResource: 0
   isPotion: 1
   isMusicDisc: 0
   isArmorTrim: 0
   isSpawnEgg: 0
+  isDye: 0

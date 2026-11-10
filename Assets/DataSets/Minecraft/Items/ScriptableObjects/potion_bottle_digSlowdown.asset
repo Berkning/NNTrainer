@@ -15,10 +15,11 @@ MonoBehaviour:
   name: potion_bottle_digSlowdown
   texture: {fileID: 2800000, guid: d7abae8d8341806b18ccf104fd912a67, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
   isArmor: 0
   isResource: 0
   isPotion: 1
   isMusicDisc: 0
   isArmorTrim: 0
   isSpawnEgg: 0
+  isDye: 0
