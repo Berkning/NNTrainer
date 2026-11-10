@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinecraftItem
   name: fishing_rod_uncast
   texture: {fileID: 2800000, guid: c683d6801414a1f2b8e3c81efdd25d4e, type: 3}
-  isTool: 0
+  isTool: 1
   isEdible: 0
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

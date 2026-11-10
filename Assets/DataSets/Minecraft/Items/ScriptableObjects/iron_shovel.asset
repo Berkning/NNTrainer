@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinecraftItem
   name: iron_shovel
   texture: {fileID: 2800000, guid: 74a5d01f4c85dee0a81ec9be8b26dd9b, type: 3}
-  isTool: 0
+  isTool: 1
   isEdible: 0
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

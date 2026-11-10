@@ -15,7 +15,8 @@ MonoBehaviour:
   name: fish_pufferfish_raw
   texture: {fileID: 2800000, guid: ec908c3ce0b96f5178d73831cd56456d, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

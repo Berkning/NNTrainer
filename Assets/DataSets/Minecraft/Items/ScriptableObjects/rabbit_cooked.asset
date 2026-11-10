@@ -15,7 +15,8 @@ MonoBehaviour:
   name: rabbit_cooked
   texture: {fileID: 2800000, guid: 8f18354a68d98c733a3a3eeea0250b28, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

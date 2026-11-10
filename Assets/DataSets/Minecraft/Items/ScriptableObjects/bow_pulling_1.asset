@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinecraftItem
   name: bow_pulling_1
   texture: {fileID: 2800000, guid: 1cc4118d77a2a4146ba0c29ba6f8cc2a, type: 3}
-  isTool: 0
+  isTool: 1
   isEdible: 0
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

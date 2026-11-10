@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinecraftItem
   name: wood_axe
   texture: {fileID: 2800000, guid: c84fe889c41de311984f05fe2af0747c, type: 3}
-  isTool: 0
+  isTool: 1
   isEdible: 0
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

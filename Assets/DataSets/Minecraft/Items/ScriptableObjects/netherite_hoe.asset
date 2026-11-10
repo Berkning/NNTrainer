@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinecraftItem
   name: netherite_hoe
   texture: {fileID: 2800000, guid: 5a61ff42c265b2bcea58e16ba8e81cf8, type: 3}
-  isTool: 0
+  isTool: 1
   isEdible: 0
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

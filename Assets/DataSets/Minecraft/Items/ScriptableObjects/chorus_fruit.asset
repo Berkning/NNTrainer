@@ -15,7 +15,8 @@ MonoBehaviour:
   name: chorus_fruit
   texture: {fileID: 2800000, guid: abca57522bd32b396a55945cfa73489c, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

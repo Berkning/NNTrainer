@@ -16,8 +16,9 @@ MonoBehaviour:
   texture: {fileID: 2800000, guid: f55cecb43a0852c96833e6e238569af4, type: 3}
   isTool: 0
   isEdible: 0
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0
   isArmorTrim: 0
-  isSpawnEgg: 0
+  isSpawnEgg: 1

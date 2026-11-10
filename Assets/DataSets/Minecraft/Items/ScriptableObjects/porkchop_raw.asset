@@ -15,7 +15,8 @@ MonoBehaviour:
   name: porkchop_raw
   texture: {fileID: 2800000, guid: 58dcee7fbdc7e48e18aba6667da3d64d, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

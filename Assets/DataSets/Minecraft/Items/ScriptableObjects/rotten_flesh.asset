@@ -15,7 +15,8 @@ MonoBehaviour:
   name: rotten_flesh
   texture: {fileID: 2800000, guid: 91a8215831a2615c4b098634545a6dc9, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

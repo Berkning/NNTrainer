@@ -16,6 +16,7 @@ MonoBehaviour:
   texture: {fileID: 2800000, guid: fd3fe5cf2f53972a0935ace1e459dc2e, type: 3}
   isTool: 0
   isEdible: 0
+  isArmor: 1
   isResource: 0
   isPotion: 0
   isMusicDisc: 0

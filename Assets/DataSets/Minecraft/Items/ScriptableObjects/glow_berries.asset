@@ -15,7 +15,8 @@ MonoBehaviour:
   name: glow_berries
   texture: {fileID: 2800000, guid: c5e149fac711d7a33ad700fd2654e23f, type: 3}
   isTool: 0
-  isEdible: 0
+  isEdible: 1
+  isArmor: 0
   isResource: 0
   isPotion: 0
   isMusicDisc: 0
